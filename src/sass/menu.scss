@@ -1,0 +1,59 @@
+.menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &__button {
+        width: 40px;
+        height: 40px;
+        background: url(../images/icon-hamburger.svg) no-repeat center;
+    }
+    a {
+        text-decoration: none;
+        color: var(--GrayishBlue);
+        padding: 0 .8em;
+    }
+    &__checkbox {
+        display: none;
+        &:checked {
+            & ~ .menu__button {
+                background: url(../images/icon-close.svg) no-repeat center;
+            }
+            & ~ .menu {
+                display: block;
+                position: absolute;
+                top: 100%;
+                background: linear-gradient(to bottom, var(--DarkBlue) 0%, transparent 100%);
+                padding: 1em;
+                height: 100vh;
+                left: 0;
+                right: 0;
+                .menu__item {
+                    &:first-child a {
+                        padding-top: 2em;
+                        border-radius: .5em .5em 0 0;
+                    }
+                    &:last-child a {
+                        padding-bottom: 2em;
+                        border-radius: 0 0 .5em .5em;
+                    }
+                }
+                a {
+                    color: var(--DarkBlue);
+                    font-weight: 400;
+                    background: var(--White);
+                    padding: .8em 1em;
+                    display: block;
+                    text-align: center;
+                    
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 768px){
+        display: flex;
+        &__button {
+            display: none;
+        }
+    }
+}
